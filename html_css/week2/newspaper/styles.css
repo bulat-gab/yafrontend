@@ -1,0 +1,5 @@
+@font-face {
+    font-family: 'olde english';
+    src: url('fonts/oldeenglish-webfont.woff2') format('woff2'),
+         url('fonts/oldeenglish-webfont.woff') format('woff');
+}
