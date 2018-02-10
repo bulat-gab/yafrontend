@@ -1,5 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Racing+Sans+One');
+@import url('https://fonts.googleapis.com/css?family=Farsan');
+@import url('https://fonts.googleapis.com/css?family=Six+Caps');
+@import url('https://fonts.googleapis.com/css?family=Space+Mono');
+  
+
 @font-face {
-    font-family: 'olde english';
+    font-family: 'NewYorkTimes_OldeEnglish';
     src: url('fonts/oldeenglish-webfont.woff2') format('woff2'),
          url('fonts/oldeenglish-webfont.woff') format('woff');
 }
