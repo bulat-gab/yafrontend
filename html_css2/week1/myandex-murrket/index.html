@@ -6,87 +6,293 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <title>Myandex-Murrket</title>
+    <!-- <script src="./Список товаров_files/script.js"></script> -->
+    <script src="./script.js"></script>
+    <title>Мяндекс.Мурркет</title>
 </head>
 <body>
-    <header>
-        <div class="layout-buttons">
-            <span class="active icon icon-list"></span>
-            <span class="icon icon-table"></span>
-        </div>
-    </header>
+    <div class="layout-buttons">
+        <button onclick="toggleView()"><span class="glyphicon glyphicon-th icon icon-table"></span></button>
+        <button onclick="toggleView()"><span class="glyphicon glyphicon-th-list active icon-list"></span></button>
+    </div>
 
-    <ul class="products clearfix">
+   <div><label for="layout_grid_on">ON</label>
+    <label for="layout_grid_off">OFF</label></div>
+
+    <input type="radio" id="layout_grid_on" name="layout">
+    <input type="radio" id="layout_grid_off" name="layout">
+    
+    
+<!-- 
+    2 radio buttons
+    1 is checked ~ box to change
+
+ -->
+    <ul class="products">
         <li class="product-wrapper">
             <div class="product">
+                <div class="product-main">
+                    <div class="product-photo"><img src="./images/cat1.jpeg"alt="">
+                    </div>
+
+                    <div class="product-text">
+                        <div class="product-title">
+                                <a href="">Product title</a>
+                        </div>
+            
+                        <div class="product-category">
+                            <a href="" class="product-company">company</a> -
+                            <a href="" class="product-type">type</a>
+                        </div>
+            
+                        <div class="product-rating">
+                            <i class="glyphicon glyphicon-star"></i>
+                            <i class="glyphicon glyphicon-star"></i>
+                            <i class="glyphicon glyphicon-star"></i>
+                            <i class="glyphicon glyphicon-star-empty"></i>
+                            <i class="glyphicon glyphicon-star-empty"></i>
+                        </div>  
+                        
+                        <div class="product-price">$599</div>
+                        <div class="product-price product-price-old">$999</div>
+                        </div>
+                        <div class="product-description">
+                            Sample text for product description. This is really awesome product. It allows you to accomplish such important things like A, B, C and even D.
+            </div>
+                </div>
+            </div>
+        </li>
+        <li class="product-wrapper">
+                <div class="product">
+    
+                    <div class="product-photo">
+                        <img src="./images/cat1.jpeg" alt="">
+                    </div>
+    
+                    <div class="product-text">
+                        <div class="product-title">
+                                <a href="">Product title</a>
+                        </div>
+            
+                        <div class="product-category">
+                            <a href="" class="product-company">company</a> -
+                            <a href="" class="product-type">type</a>
+                        </div>
+            
+                        <div class="product-rating">
+                            <i class="glyphicon glyphicon-star"></i>
+                            <i class="glyphicon glyphicon-star"></i>
+                            <i class="glyphicon glyphicon-star"></i>
+                            <i class="glyphicon glyphicon-star-empty"></i>
+                            <i class="glyphicon glyphicon-star-empty"></i>
+                        </div>  
+                        
+                        <div class="product-price">$599</div>
+                        <div class="product-price product-price-old">$999</div>
+                        <div class="product-description">
+                            Sample text for product description. This is really awesome product. It allows you to accomplish such important things like A, B, C and even D.
+                        </div>
+                    </div>
+                </div>
+        </li>
+        <li class="product-wrapper">
+                <div class="product">
+    
+                    <div class="product-photo">
+                        <img src="./images/cat1.jpeg" alt="">
+                    </div>
+    
+                    <div class="product-text">
+                        <div class="product-title">
+                                <a href="">Product title</a>
+                        </div>
+            
+                        <div class="product-category">
+                            <a href="" class="product-company">company</a> -
+                            <a href="" class="product-type">type</a>
+                        </div>
+            
+                        <div class="product-rating">
+                            <i class="glyphicon glyphicon-star"></i>
+                            <i class="glyphicon glyphicon-star"></i>
+                            <i class="glyphicon glyphicon-star"></i>
+                            <i class="glyphicon glyphicon-star-empty"></i>
+                            <i class="glyphicon glyphicon-star-empty"></i>
+                        </div>  
+                        
+                        <div class="product-price">$599</div>
+                        <div class="product-price product-price-old">$999</div>
+                        <div class="product-description">
+                            Sample text for product description. This is really awesome product. It allows you to accomplish such important things like A, B, C and even D.
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="product-wrapper">
+                    <div class="product">
+        
+                        <div class="product-photo">
+                            <img src="./images/cat1.jpeg" alt="">
+                        </div>
+        
+                        <div class="product-text">
+                            <div class="product-title">
+                                    <a href="">Product title</a>
+                            </div>
+                
+                            <div class="product-category">
+                                <a href="" class="product-company">company</a> -
+                                <a href="" class="product-type">type</a>
+                            </div>
+                
+                            <div class="product-rating">
+                                <i class="glyphicon glyphicon-star"></i>
+                                <i class="glyphicon glyphicon-star"></i>
+                                <i class="glyphicon glyphicon-star"></i>
+                                <i class="glyphicon glyphicon-star-empty"></i>
+                                <i class="glyphicon glyphicon-star-empty"></i>
+                            </div>  
+                            
+                            <div class="product-price">$599</div>
+                            <div class="product-price product-price-old">$999</div>
+                            <div class="product-description">
+                                Sample text for product description. This is really awesome product. It allows you to accomplish such important things like A, B, C and even D.
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="product-wrapper">
+                        <div class="product">
+            
+                            <div class="product-photo">
+                                <img src="./images/cat1.jpeg" alt="">
+                            </div>
+            
+                            <div class="product-text">
+                                <div class="product-title">
+                                        <a href="">Product title</a>
+                                </div>
+                    
+                                <div class="product-category">
+                                    <a href="" class="product-company">company</a> -
+                                    <a href="" class="product-type">type</a>
+                                </div>
+                    
+                                <div class="product-rating">
+                                    <i class="glyphicon glyphicon-star"></i>
+                                    <i class="glyphicon glyphicon-star"></i>
+                                    <i class="glyphicon glyphicon-star"></i>
+                                    <i class="glyphicon glyphicon-star-empty"></i>
+                                    <i class="glyphicon glyphicon-star-empty"></i>
+                                </div>  
+                                
+                                <div class="product-price">$599</div>
+                                <div class="product-price product-price-old">$999</div>
+                                <div class="product-description">
+                                    Sample text for product description. This is really awesome product. It allows you to accomplish such important things like A, B, C and even D.
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="product-wrapper">
+                            <div class="product">
+                
+                                <div class="product-photo">
+                                    <img src="./images/cat1.jpeg" alt="">
+                                </div>
+                
+                                <div class="product-text">
+                                    <div class="product-title">
+                                            <a href="">Product title</a>
+                                    </div>
+                        
+                                    <div class="product-category">
+                                        <a href="" class="product-company">company</a> -
+                                        <a href="" class="product-type">type</a>
+                                    </div>
+                        
+                                    <div class="product-rating">
+                                        <i class="glyphicon glyphicon-star"></i>
+                                        <i class="glyphicon glyphicon-star"></i>
+                                        <i class="glyphicon glyphicon-star"></i>
+                                        <i class="glyphicon glyphicon-star-empty"></i>
+                                        <i class="glyphicon glyphicon-star-empty"></i>
+                                    </div>  
+                                    
+                                    <div class="product-price">$599</div>
+                                    <div class="product-price product-price-old">$999</div>
+                                    <div class="product-description">
+                                        Sample text for product description. This is really awesome product. It allows you to accomplish such important things like A, B, C and even D.
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="product-wrapper">
+                                <div class="product">
+                    
+                                    <div class="product-photo">
+                                        <img src="./images/cat1.jpeg" alt="">
+                                    </div>
+                    
+                                    <div class="product-text">
+                                        <div class="product-title">
+                                                <a href="">Product title</a>
+                                        </div>
+                            
+                                        <div class="product-category">
+                                            <a href="" class="product-company">company</a> -
+                                            <a href="" class="product-type">type</a>
+                                        </div>
+                            
+                                        <div class="product-rating">
+                                            <i class="glyphicon glyphicon-star"></i>
+                                            <i class="glyphicon glyphicon-star"></i>
+                                            <i class="glyphicon glyphicon-star"></i>
+                                            <i class="glyphicon glyphicon-star-empty"></i>
+                                            <i class="glyphicon glyphicon-star-empty"></i>
+                                        </div>  
+                                        
+                                        <div class="product-price">$599</div>
+                                        <div class="product-price product-price-old">$999</div>
+                                        <div class="product-description">
+                                            Sample text for product description. This is really awesome product. It allows you to accomplish such important things like A, B, C and even D.
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="product-wrapper">
+            <div class="product">
+
                 <div class="product-photo">
-                    <img src="images/cat1.jpeg" alt="cat1">
+                    <img src="./images/cat1.jpeg" alt="">
                 </div>
 
-                <div class="product-description">
-                    <a href=""><h3>Мяурицио</h3></a>
-                    <div class="product-category">Category</div>
+                <div class="product-text">
+                    <div class="product-title">
+                            <a href="">Product title</a>
+                    </div>
+        
+                    <div class="product-category">
+                        <a href="" class="product-company">company</a> -
+                        <a href="" class="product-type">type</a>
+                    </div>
+        
                     <div class="product-rating">
                         <i class="glyphicon glyphicon-star"></i>
                         <i class="glyphicon glyphicon-star"></i>
                         <i class="glyphicon glyphicon-star"></i>
                         <i class="glyphicon glyphicon-star-empty"></i>
                         <i class="glyphicon glyphicon-star-empty"></i>
+                    </div>  
+                    
+                    <div class="product-price">$599</div>
+                    <div class="product-price product-price-old">$999</div>
+                    <div class="product-description">
+                        Sample text for product description. This is really awesome product. It allows you to accomplish such important things like A, B, C and even D.
                     </div>
-
-                    <div class="product-price">1000$</div>
-                    <div class="product-price-old">500$</div>
-                    <p>Она подарит радость и оживление любой семье. Ласковый и верный друг — американская жесткошерстная кошка любопытна, разумна и в то же время ненавязчива. Узнаем об истории происхождения этих животных, их особенностях, уходе, кормлении.</p>
                 </div>
-                
             </div>
         </li>
-
-        <li class="product-wrapper">
-            <a href="" class="product"></a>
-        </li>
-
-        <li class="product-wrapper">
-            <a href="" class="product"></a>
-        </li>
-
-        <li class="product-wrapper">
-            <a href="" class="product"></a>
-        </li>
-
-        <li class="product-wrapper">
-            <a href="" class="product"></a>
-        </li>
-
-        <li class="product-wrapper">
-            <a href="" class="product"></a>
-        </li>
-
-        <li class="product-wrapper">
-            <a href="" class="product"></a>
-        </li>
-
-        <li class="product-wrapper">
-            <a href="" class="product"></a>
-        </li>
-
-        <li class="product-wrapper">
-            <a href="" class="product"></a>
-        </li>
-
-        <li class="product-wrapper">
-            <a href="" class="product"></a>
-        </li>
-
-        <li class="product-wrapper">
-            <a href="" class="product"></a>
-        </li>
-
-        <li class="product-wrapper">
-            <a href="" class="product"></a>
-        </li>
     </ul>
-
-   
 </body>
 </html>
