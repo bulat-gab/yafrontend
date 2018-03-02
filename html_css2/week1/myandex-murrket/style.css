@@ -1,25 +1,143 @@
-.products {
+html, body, body * {
+    box-sizing: border-box;
+}
 
+.products {
+    padding: 0; /* reset ul's padding */
 }
 
 .product-wrapper {
-	display: block;
+    padding: 10px;
 	width: 100%;
 	float: left;
-    transition: width .2s;
-    
-    display: block;
-	border: 1px solid #b5e9a7;
-	border-radius: 3px;
-	position: relative;
-	background: #fff;
-	margin: 0 20px 20px 0;
-	text-decoration: none;
-	color: #474747;
 	z-index: 0;
-	height: 300px;
+    display: block;
 }
 
+.product-main {
+    transition: width .2s;
+	border: 1px solid #b5e9a7;
+	border-radius: 3px;
+	background: #fff;
+	text-decoration: none;
+	color: #474747;
+    height: 700px;
+    padding: 10px;
+}
+
+/* Set bottom border of the product item*/
+.product-main::after {
+    content: ""; display: block;
+    line-height: 0; height: 0;
+    clear: both;
+}
+
+.product-photo,
+.product-info, 
+.product-description {
+    width: 100%;
+}
+
+.product-info, 
+.product-description {
+    padding: 10px;
+}
+
+.product-photo {
+    position: relative;
+    overflow: hidden;
+    height: 400px;
+    text-align: center;
+}
+
+.product-photo > img {
+    width: auto;
+    height : auto;
+    max-height: 100%;
+    max-width: 100%;
+    transition: transform .4s ease-out;
+}
+
+.product-info { }
+
+.product-description { }
+
+input:checked ~ .products .product-wrapper {
+    width: 100%;
+}
+input:checked ~ .products .product-main {
+    height: auto;
+}
+
+input:checked ~ .products > .product-wrapper .product-photo,
+input:checked ~ .products > .product-wrapper .product-info,
+input:checked ~ .products > .product-wrapper .product-description {
+    float: left;
+}
+
+input:checked ~ .products > .product-wrapper .product-photo {
+    width: 300px;
+}
+
+input:checked ~ .products > .product-wrapper .product-info {
+    width: calc(65% - 300px);
+   /*  text-align: center; */
+}
+
+input:checked ~ .products > .product-wrapper .product-description {
+    width: 35%;
+}
+
+
+/* Text styling */
+.product-title {
+    font-size: 1.5em;
+    white-space: nowrap; /* Отменяем перенос текста */
+    overflow: hidden; /* Обрезаем содержимое */
+    padding: 5px; /* Поля */
+    text-overflow: ellipsis; /* Многоточие */
+}
+
+.product-category a{
+    color: rgb(88, 86, 86);
+    font-size: 0.8em;
+}
+
+.product-rating {
+    color: yellow;
+}
+
+.product-price {
+
+}
+
+.product-price-new {
+    display: inline;
+    color: rgb(100, 4, 4);
+    font-weight: bolder;
+    font-size: 1.5em;
+}
+
+.product-price-old {
+    display: inline;
+    text-decoration: line-through;
+}
+
+/* Hovering */
+.product-wrapper:hover .product-title a{
+    color: red;
+}
+
+.product-wrapper:hover .product-photo img {
+    transform: scale(1.05);
+    opacity: 0.7;
+}
+
+.product-category .a{
+    color: rgb(56, 53, 53);
+}
+
+/* Media queries for adaptive layout */
 @media only screen and (min-width: 550px) {
 	.product-wrapper {
 		width: 50%;
