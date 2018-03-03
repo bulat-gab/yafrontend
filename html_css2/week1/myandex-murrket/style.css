@@ -10,8 +10,6 @@ font-style : normal;
              url("https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.svg?v=4.3.0#fontawesomeregular") format("svg");
 }
 
-
-
 html, body, body * {
     box-sizing: border-box;
 }
@@ -30,7 +28,7 @@ html, body, body * {
 
 .product-main {
     transition: width .2s;
-	border: 1px solid #b5e9a7;
+	/* border: 1px solid #b5e9a7; */
 	border-radius: 3px;
 	background: #fff;
 	text-decoration: none;
@@ -70,6 +68,10 @@ html, body, body * {
     max-height: 100%;
     max-width: 100%;
     transition: transform .4s ease-out;
+    text-align: end;
+    position: absolute;
+    bottom: 0;
+    margin-left: -50%; 
 }
 input:checked ~ .products .product-wrapper {
     width: 100%;
@@ -86,6 +88,11 @@ input:checked ~ .products > .product-wrapper .product-description {
 
 input:checked ~ .products > .product-wrapper .product-photo {
     width: 300px;
+}
+
+input:checked ~ .products > .product-wrapper .product-photo img{
+    top: 0;
+    bottom: auto;
 }
 
 input:checked ~ .products > .product-wrapper .product-info {
