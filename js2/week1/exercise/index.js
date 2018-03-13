@@ -22,13 +22,27 @@ Collection.prototype.values = function () {
 // другие методы
 
 Collection.prototype.append = function () {
-    if(!(arguments[0] instanceof Collection))
-         this.data.push(arguments[0])
+    if(arguments[0] instanceof Collection){
+        this.data = this.data.concat(arguments[0].data)
+    }
+    else {
+        this.data.push(arguments[0])
+    }
 };
 Collection.prototype.at = function () {
-    return Object.keys(this.content)[arguments[0]]
+    var index = arguments[0]
+
+    return index > 0 ? this.data[index-1] : null
 };
-Collection.prototype.removeAt = function () {};
+Collection.prototype.removeAt = function () {
+    var index = arguments[0]
+
+    if(index <= 0 || index > this.data.length)
+        return false
+
+    this.data.splice(index-1, 1)
+    return true
+};
 
 Collection.prototype.count = function () {
     return this.data.length
