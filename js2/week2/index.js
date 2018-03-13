@@ -1,26 +1,36 @@
-/**
+ /**
  * @param {Function[]} operations
  * @param {Function} callback
  */
+
+
 module.exports = function (operations, callback) {
-    var results = [];
-    var errors = '';
-
-    for (const op of operations) {
-        op(next)
-
-        results.push(tmp[1])
-        errors = err
+    if(operations.length === 0){
+        callback(null, []) 
     }
 
+    var result = [];
+    var doneOperations = 0;
+    var hasError = false;
 
-    callback(errors, resutls)
+   
+    operations.forEach(function (operation, index) {
+        operation(function next(err, data) {
+            if (hasError) {
+                return;
+            }
+            if (err) {
+                callback(err);
+                hasError = true;
+
+                return;
+            }
+            result[index] = data;
+            doneOperations++;
+
+            if (doneOperations === operations.length) {
+                callback(null, result);
+            }
+        });
+    });
 };
-
-var tmp = [];
-
-var next = function(err, data) {
-
-    this.tmp = [err, data]
-    return [err, data]
-}
