@@ -5,50 +5,45 @@ body {
 
 .layer {
     margin: 0 auto;
-    background: url("./images/bg-blue.png");
+    background: url("./images/layer3.png");
     height: 4634px;
     width: 993px;
-    background-color: #72c4f6;
 }
 
 .wrapper {
-    margin: 0 auto;
-    background: url("./images/bg.png");
-    height: 100%;/*  4634px; */
-}
-
-.first {
-    margin: 0 auto;
-    height: 1294px;
-    width: 766px;
-    background: url("./images/first.png");
-}
-
-.story {
-    margin: 0 auto;
-    height: 2473px;
-    background: url("./images/story.png");
-}
-
-.people {
-    position: absolute;
-    top: 1029px;
-    left: 509px;
-    width: 609px;
-    height: 3032px;
-    background: url("./images/people.png");
-}
-
-.footer {
-    margin: 0 auto;
-    margin-top: 100px;
-    width: 686px;
-    height: 648px;
-    background: url("./images/footer.png");
-}
-
-.social {
     position: relative;
-    top: 515px;
-    content: url("./images/social.png")
+    margin: 0 auto;
+    background: url("./images/all.png");
+    height: 4634px;
+    width: 993px;
+}
+
+.blue,
+.red,
+.yellow {
+    position: absolute;
+    width: 135px;
+    height: 135px;
+    display: inline-block;
+    border-radius: 50%;
+}
+
+.people1 {
+    top: 1050px;
+}
+
+.people2 {
+    top: 3935px;
+}
+
+.blue {
+    left: 195px;
+}
+
+.red {
+    left: 425px;
+}
+
+.yellow {
+    left: 660px;
 }
