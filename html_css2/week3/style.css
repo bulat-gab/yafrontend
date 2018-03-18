@@ -1,3 +1,19 @@
 body {
+    
+    background: black;
+}
+
+.wrapper {
+    margin: 0 auto;
+    background: url("./images/bg.png");
+    height: 4634px;
+    width: 993px;
     background-color: #72c4f6;
+}
+
+.first {
+    margin: 0 auto;
+    height: 1294px;
+    width: 766px;
+    background: url("./images/first.png");
 }
