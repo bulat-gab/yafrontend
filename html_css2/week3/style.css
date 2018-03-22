@@ -1,3 +1,37 @@
 body {
     background-color: #72c4f6;
+    /* border: 18px;
+    border-color: white;
+     */
+     max-width: 960px;
 }
+
+html:before, html:after, body:before, body:after {
+    content: "";
+    position: fixed;
+    background: white;
+
+    /* etc. */
+}
+
+/* body:before, body:after {
+    content: "";
+    position: fixed;
+    background: white;
+    left: 0;
+    right: 0;
+    height: 10px;
+}
+body:before {
+    top: 0;
+}
+body:after {
+    bottom: 0;
+}
+body {
+    border-left: 18px solid white;
+    border-right: 18px solid white;
+    /* border-bottom: 18px solid white;
+    /* border-top: 18px solid white;   
+    
+} */
