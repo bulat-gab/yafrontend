@@ -1,3 +1,5 @@
+/* 🐶 🐱 🐭 🐹 🐰 🐻 🐼 🐨 🐯 🦁 🐮 🐷 🐸 🐙 🐵 🦄 🐞 🦀 🐟 🐊 🐓 🦃 🐿 */
+
 body {
     background: #CFD0CF;
 }
@@ -19,17 +21,39 @@ header {
     grid-template-rows: 130px 130px 130px;
     grid-column-gap: 25px;
     grid-row-gap: 25px;
-
+    perspective: 600px;
 }
 
-.cards-wrapper * {
+.card {
+    transition: .6s;
+    transform-style: preserve-3d;
+}
+
+.front, .back {
     height: 130px;
     width: 130px;
     border-radius: 9px;
     border: 5px solid white;
+    backface-visibility: hidden;
+
+    /* Keep back side in the same place as front side */
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.front {
     background: linear-gradient(45deg, #22AB93, #19668D);
     box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.5);
     -webkit-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.5);
     -moz-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.5);
+    z-index: 2;
 }
 
+.back {
+    transform: rotateY(180deg);
+    left: -10px;
+    background: white;
+    font-size: 7em;
+    text-align: center;
+}
