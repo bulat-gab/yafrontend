@@ -42,6 +42,7 @@ function debug(){
 };
 document.addEventListener('click', debug());
 
+const CARD_NUMBER = 6;
 const emoji = [['dog', '🐶'], ['panda', '🐼'], ['cow', '🐮']
 , ['octopus', '🐙'], ['monkey', '🐵'], ['peacock', '🦃']]
 var emojiMap = new Map(emoji);
@@ -49,6 +50,12 @@ var emojiMap = new Map(emoji);
 let cardsWrapper = document.querySelector('.cards-wrapper');
 let cards = Array.from(document.querySelectorAll('.card'));
 let openedCards = [];
+let moves = 0;
+let matched_cards;
+let seconds;
+let interval;
+let timer = document.querySelector('.timer');
+
 
 document.body.onload = startGame();
 
@@ -56,10 +63,24 @@ function startGame(){
     shuffle(cards);
     updatePicture(cards);
     cardsWrapper.innerHTML = '';
+    clearInterval(interval);
     cards.forEach(card => {
         cardsWrapper.appendChild(card);
-    })
+    });
+
+    moves = 0;
+    matched_cards = 0;
+    seconds = 59;
 };
+
+function startTimer(){
+    interval = setInterval(updateTimer, 1000);
+}
+
+function updateTimer(){
+    timer.innerHTML = seconds;
+    seconds--;
+}
 
 function shuffle(a) {
     for (let i = a.length - 1; i > 0; i--) {
@@ -85,7 +106,6 @@ function isCardsMatched(){
 };
 
 cards.forEach(card => {
-
     // Open card on click
     card.addEventListener('click', () => {
         if(!card.classList.contains('matched') 
@@ -93,6 +113,12 @@ cards.forEach(card => {
 
             if(card.classList.contains('closed')){
                 console.log(card.classList[1],'opened');
+                moves++;
+                if(moves === 1){
+                    updateTimer();
+                    startTimer();
+                }
+
                 card.classList.add('disabled');
                 card.classList.remove('closed');
                 card.style.transform = 'rotateY(180deg)';
@@ -124,20 +150,24 @@ cards.forEach(card => {
             }
             else{
                 unmatched();
-            }
-             
+            }   
         }
     });
 });
 
 function matched(){
     console.log('function matched');
+    matched_cards++;
     openedCards.forEach(c => {
         c.classList.add('matched');
         c.classList.add('disabled');
         c.querySelector('.back').style.background = '#5AD66F';
     });
     openedCards = [];
+
+    if(){
+        
+    }
 };
 
 function unmatched(){
@@ -157,6 +187,14 @@ function refreshUnmatchedCards(){
                 card.classList.add('closed');
                 card.classList.remove('disabled');
                 card.classList.remove('unmatched');
-            });
-            openedCards = [];
+    });
+    openedCards = [];
 };
+
+function isWon(){
+    matched_cards === CARD_NUMBER
+}
+function win(){
+    timer.style.visibility ='hidden';
+    clearInterval(interval);
+}

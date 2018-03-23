@@ -61,3 +61,18 @@ header {
     font-size: 7em;
     text-align: center;
 }
+
+.timer {
+    margin: 0 auto;
+    font-size: 3em;
+    height: 32px;
+    width: 32px;
+}
+
+.win-popup {
+    visibility: hidden;
+}
+
+.lose-popup {
+    visibility: hidden;
+}
