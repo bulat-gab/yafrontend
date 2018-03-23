@@ -86,19 +86,21 @@ function isCardsMatched(){
 
 cards.forEach(card => {
 
-    // Flip card on click
+    // Open card on click
     card.addEventListener('click', () => {
         if(!card.classList.contains('matched') 
         && !card.classList.contains('disabled')){
 
             if(card.classList.contains('closed')){
+                console.log(card.classList[1],'opened');
                 card.classList.add('disabled');
                 card.classList.remove('closed');
                 card.style.transform = 'rotateY(180deg)';
             }
             else{
-                 card.style.transform = 'rotateY(0deg)';
-                 card.classList.add('closed');
+                console.log(card.classList[1], 'close');
+                card.style.transform = 'rotateY(0deg)';
+                card.classList.add('closed');
             }
         };
     });
@@ -106,9 +108,9 @@ cards.forEach(card => {
     // Determine card matches
     card.addEventListener('click', () => {
         console.log('openedCards 1: ', openedCards);
-        if(card.classList.contains('matched')|| openedCards[0] === card)
+        if(card.classList.contains('matched')|| card.classList.contains('unmatched') 
+        || openedCards[0] === card)
             return;
-        
 
         if(openedCards.length === 2){
             refreshUnmatchedCards();
@@ -129,23 +131,26 @@ cards.forEach(card => {
 });
 
 function matched(){
+    console.log('function matched');
     openedCards.forEach(c => {
         c.classList.add('matched');
         c.classList.add('disabled');
-        c.querySelector('.back').style.background = 'green';
+        c.querySelector('.back').style.background = '#5AD66F';
     });
     openedCards = [];
 };
 
 function unmatched(){
+    console.log('function unmatched');
     openedCards.forEach(c => {
         c.classList.add('unmatched');
         c.classList.add('disabled');
-        c.querySelector('.back').style.background = 'red';
+        c.querySelector('.back').style.background = '#F44336';
     });
 };
 
 function refreshUnmatchedCards(){
+    console.log('function refresh');
     openedCards.forEach(card => {
                 card.style.transform = 'rotateY(0deg)';
                 card.querySelector('.back').style.background = 'white';
