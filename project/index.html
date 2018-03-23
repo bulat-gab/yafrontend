@@ -11,7 +11,8 @@
 
  <body>
      <header>Memoji</header>
-     <button>Flip All</button>
+     <button class='flip-all'>Flip All</button>
+     <button class='instant-win'>Instant Win</button>
      <section>
          <div class="cards-wrapper">
              <div class="card dog closed">
@@ -70,8 +71,18 @@
          </div>
      </section>
      <div class="timer"></div>
-     <div class="win-popup"></div>
-     <div class="lose-popup"></div>
+     <div class="overlay">
+         <div class="overlay-content">
+                <div class="win-popup">
+                    <p>Win</p>
+                    <button class="game-end-button play-again-button">Play again</button>
+                </div>
+                <div class="lose-popup">
+                    <p>Lose</p>
+                    <button class="game-end-button try-again-button">Try again</button>
+                </div>
+         </div>
+     </div>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="./script.js"></script>
  </body>

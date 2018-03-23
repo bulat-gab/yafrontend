@@ -16,7 +16,7 @@
     })
 }); */
 
-document.querySelector('button').addEventListener('click', () => {
+document.querySelector('.flip-all').addEventListener('click', () => {
     let cardsToggle = Array.from(document.querySelectorAll('.card'));
     cardsToggle.forEach(card => {
 
@@ -26,9 +26,13 @@ document.querySelector('button').addEventListener('click', () => {
         }
         else{
             card.style.transform = 'rotateY(0deg)';
-             card.classList.add('closed');
+            card.classList.add('closed');
         }
     })
+});
+
+document.querySelector('.instant-win').addEventListener('click', () => {
+    win();
 });
 
 function debug(){
@@ -42,7 +46,7 @@ function debug(){
 };
 document.addEventListener('click', debug());
 
-const CARD_NUMBER = 6;
+const CARDS_NUMBER = 6;
 const emoji = [['dog', '🐶'], ['panda', '🐼'], ['cow', '🐮']
 , ['octopus', '🐙'], ['monkey', '🐵'], ['peacock', '🦃']]
 var emojiMap = new Map(emoji);
@@ -55,11 +59,28 @@ let matched_cards;
 let seconds;
 let interval;
 let timer = document.querySelector('.timer');
-
+let overlay = document.querySelector('.overlay');
+let winPopup = document.querySelector('.win-popup');
+let losePopup = document.querySelector('.lose-popup');
 
 document.body.onload = startGame();
 
+document.querySelector('.play-again-button').addEventListener('click', () => {
+    startGame();
+});
+
+document.querySelector('.try-again-button').addEventListener('click', () => {
+    startGame();
+});
+
 function startGame(){
+    clearCards();
+
+    overlay.style.visibility = 'hidden';
+    winPopup.style.display = 'none'; 
+    losePopup.style.display = 'none';
+    timer.style.visibility ='visible';
+
     shuffle(cards);
     updatePicture(cards);
     cardsWrapper.innerHTML = '';
@@ -70,14 +91,27 @@ function startGame(){
 
     moves = 0;
     matched_cards = 0;
-    seconds = 59;
+    seconds = 3;
 };
+
+function clearCards() {
+    cards.forEach(card => {
+        card.classList.remove('disabled', 'matched', 'unmatched');
+        if(!card.classList.contains('closed')){
+            card.classList.add('closed');
+            card.style.transform = 'rotateY(0deg)';
+        }
+    })
+}
 
 function startTimer(){
     interval = setInterval(updateTimer, 1000);
 }
 
 function updateTimer(){
+     if(seconds === 0) {
+        lose();
+    }
     timer.innerHTML = seconds;
     seconds--;
 }
@@ -165,8 +199,8 @@ function matched(){
     });
     openedCards = [];
 
-    if(){
-        
+    if(isWin()){
+        win();
     }
 };
 
@@ -191,10 +225,21 @@ function refreshUnmatchedCards(){
     openedCards = [];
 };
 
-function isWon(){
-    matched_cards === CARD_NUMBER
+function isWin(){
+    return matched_cards === CARDS_NUMBER;
 }
 function win(){
-    timer.style.visibility ='hidden';
+    timer.innerHTML = '';
+    timer.style.visibility = 'hidden';
     clearInterval(interval);
+    overlay.style.visibility = 'visible';
+    winPopup.style.display = 'block';
+}
+
+function lose(){
+    timer.innerHTML = '';
+    timer.style.visibility = 'hidden';
+    clearInterval(interval);
+    overlay.style.visibility = 'visible';
+    losePopup.style.display = 'block';
 }
