@@ -1,51 +1,3 @@
-/* $(document).ready(function(){
-    console.log('ready!');
-
-    $('.card').click(function(){
-
-        var $card = $(this);
-
-        if($card.hasClass('closed')){
-            $card.removeClass('closed');
-            $card.css({'transform':'rotateY(180deg)'});
-        }
-        else{
-            $card.css({'transform':'rotateY(0deg)'});
-             $card.addClass('closed')
-        }
-    })
-}); */
-
-document.querySelector('.flip-all').addEventListener('click', () => {
-    let cardsToggle = Array.from(document.querySelectorAll('.card'));
-    cardsToggle.forEach(card => {
-
-        if(card.classList.contains('closed')){
-            card.classList.remove('closed');
-            card.style.transform = 'rotateY(180deg)';
-        }
-        else{
-            card.style.transform = 'rotateY(0deg)';
-            card.classList.add('closed');
-        }
-    })
-});
-
-document.querySelector('.instant-win').addEventListener('click', () => {
-    win();
-});
-
-function debug(){
-    let cards = Array.from(document.querySelectorAll('.card'));
-    cards.forEach(card => {
-        let back = card.querySelector('.back');
-        let front = card.querySelector('.front');
-
-        front.innerHTML = back.innerHTML;
-    });
-};
-document.addEventListener('click', debug());
-
 const CARDS_NUMBER = 6;
 const emoji = [['dog', '🐶'], ['panda', '🐼'], ['cow', '🐮']
 , ['octopus', '🐙'], ['monkey', '🐵'], ['peacock', '🦃']]
@@ -60,27 +12,66 @@ let seconds;
 let interval;
 let timer = document.querySelector('.timer');
 let overlay = document.querySelector('.overlay');
-let winPopup = document.querySelector('.win-popup');
-let losePopup = document.querySelector('.lose-popup');
+let winPopup = document.querySelector('.overlay__win-popup');
+let losePopup = document.querySelector('.overlay__lose-popup');
 
 document.body.onload = startGame();
 
-document.querySelector('.play-again-button').addEventListener('click', () => {
-    startGame();
+document.querySelectorAll('.overlay__game-end-button').forEach(btn => {
+    btn.addEventListener('click', startGame)
 });
 
-document.querySelector('.try-again-button').addEventListener('click', () => {
-    startGame();
+cards.forEach(card => {
+    // Open card on click
+    card.addEventListener('click', () => {
+        if(!card.classList.contains('matched') 
+        && !card.classList.contains('disabled')){
+
+            if(card.classList.contains('closed')){
+                moves++;
+                if(moves === 1){
+                    updateTimer();
+                    startTimer();
+                }
+
+                card.classList.add('disabled');
+                card.classList.remove('closed');
+                card.style.transform = 'rotateY(180deg)';
+            }
+            else{
+                
+                card.style.transform = 'rotateY(0deg)';
+                card.classList.add('closed');
+            }
+        };
+    });
+
+    // Determine card matches
+    card.addEventListener('click', () => {
+        if(card.classList.contains('matched')|| card.classList.contains('unmatched') 
+        || openedCards[0] === card)
+            return;
+
+        if(openedCards.length === 2){
+            refreshUnmatchedCards();
+        }
+
+        openedCards.push(card);
+        if(openedCards.length === 2){
+            if(isCardsMatched()){
+                matched();
+            }
+            else{
+                unmatched();
+            }   
+        }
+    });
 });
 
 function startGame(){
     clearCards();
-
-    overlay.style.visibility = 'hidden';
-    winPopup.style.display = 'none'; 
-    losePopup.style.display = 'none';
-    timer.style.visibility ='visible';
-
+    clearOverlay();
+    
     shuffle(cards);
     updatePicture(cards);
     cardsWrapper.innerHTML = '';
@@ -91,7 +82,15 @@ function startGame(){
 
     moves = 0;
     matched_cards = 0;
-    seconds = 3;
+    seconds = 59;
+};
+
+function clearOverlay() {
+    overlay.style.visibility = 'hidden';
+    winPopup.style.display = 'none'; 
+    losePopup.style.display = 'none';
+    timer.innerHTML = '';
+    timer.style.visibility ='visible';
 };
 
 function clearCards() {
@@ -101,8 +100,8 @@ function clearCards() {
             card.classList.add('closed');
             card.style.transform = 'rotateY(0deg)';
         }
-    })
-}
+    });
+};
 
 function startTimer(){
     interval = setInterval(updateTimer, 1000);
@@ -134,63 +133,11 @@ function updatePicture(cards){
 function isCardsMatched(){
     let firstCard = openedCards[0].classList[1];
     let secondCard = openedCards[1].classList[1];
-    if(firstCard === secondCard)
-        return true;
-    return false;
+
+    return firstCard === secondCard ? true : false;
 };
 
-cards.forEach(card => {
-    // Open card on click
-    card.addEventListener('click', () => {
-        if(!card.classList.contains('matched') 
-        && !card.classList.contains('disabled')){
-
-            if(card.classList.contains('closed')){
-                console.log(card.classList[1],'opened');
-                moves++;
-                if(moves === 1){
-                    updateTimer();
-                    startTimer();
-                }
-
-                card.classList.add('disabled');
-                card.classList.remove('closed');
-                card.style.transform = 'rotateY(180deg)';
-            }
-            else{
-                console.log(card.classList[1], 'close');
-                card.style.transform = 'rotateY(0deg)';
-                card.classList.add('closed');
-            }
-        };
-    });
-
-    // Determine card matches
-    card.addEventListener('click', () => {
-        console.log('openedCards 1: ', openedCards);
-        if(card.classList.contains('matched')|| card.classList.contains('unmatched') 
-        || openedCards[0] === card)
-            return;
-
-        if(openedCards.length === 2){
-            refreshUnmatchedCards();
-        }
-
-        openedCards.push(card);
-        console.log('openedCards 2: ', openedCards);
-        if(openedCards.length === 2){
-            if(isCardsMatched()){
-                matched();
-            }
-            else{
-                unmatched();
-            }   
-        }
-    });
-});
-
 function matched(){
-    console.log('function matched');
     matched_cards++;
     openedCards.forEach(c => {
         c.classList.add('matched');
@@ -205,7 +152,6 @@ function matched(){
 };
 
 function unmatched(){
-    console.log('function unmatched');
     openedCards.forEach(c => {
         c.classList.add('unmatched');
         c.classList.add('disabled');
@@ -214,7 +160,6 @@ function unmatched(){
 };
 
 function refreshUnmatchedCards(){
-    console.log('function refresh');
     openedCards.forEach(card => {
                 card.style.transform = 'rotateY(0deg)';
                 card.querySelector('.back').style.background = 'white';
@@ -229,17 +174,19 @@ function isWin(){
     return matched_cards === CARDS_NUMBER;
 }
 function win(){
+    clearInterval(interval);
     timer.innerHTML = '';
     timer.style.visibility = 'hidden';
-    clearInterval(interval);
+    
     overlay.style.visibility = 'visible';
     winPopup.style.display = 'block';
 }
 
 function lose(){
+    clearInterval(interval);
     timer.innerHTML = '';
     timer.style.visibility = 'hidden';
-    clearInterval(interval);
+    
     overlay.style.visibility = 'visible';
     losePopup.style.display = 'block';
 }

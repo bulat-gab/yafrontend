@@ -48,10 +48,6 @@ header {
     -webkit-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.5);
     -moz-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.5);
     z-index: 2;
-
-    /* TODO: Remove on release */
-    font-size: 7em;
-    text-align: center;
 }
 
 .back {
@@ -84,8 +80,8 @@ header {
     margin: 0 auto;
 }
 
-.lose-popup,
-.win-popup {
+.overlay__lose-popup,
+.overlay__win-popup {
     display: none;
     margin-top: -30px;
     text-align: center;
@@ -94,7 +90,7 @@ header {
     font-weight: bold;
 }
 
-.overlay-content {
+.overlay__overlay-content {
     position: relative;
     background-color: #fefefe;
     margin: 15% auto; /* 15% from the top and centered */
@@ -104,7 +100,7 @@ header {
     height: 188px;
 }
 
-.game-end-button {
+.overlay__game-end-button {
     position: absolute;
     left: 35%;
     bottom: 30px;
@@ -116,16 +112,12 @@ header {
     font-weight: bold;
 }
 
-.win-popup {
-    display: block;
-}
+.overlay__game-end-button:focus {outline:0;}
 
-.game-end-button:focus {outline:0;}
-
-.game-end-button:active {
+.overlay__game-end-button:active {
     box-shadow: -2px -1px 8px  rgba(0,0,0);
 }
 
-.game-end-button:not(:active){
+.overlay__game-end-button:not(:active){
     box-shadow: 1px 1px 1px  rgba(0,0,0);
 }
