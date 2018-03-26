@@ -3,7 +3,272 @@
 <head>
     <meta charset="utf-8">
     <title>Задача «Морда»</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
+    <div class="container">
+        <div class="location">
+            <i class="location-icon"></i>
+            <span class="location-name text-muted">Екатеринбург</span>
+        </div>
+        <div class="mass-media">
+            <div class="mass-media__header">
+                 <span class="mass-media__current">Сейчас в СМИ</span>
+                 <span class="mass-media__city">В Екатеринбурге</span>
+                 <time class="mass-media__date text-muted">13 ноября, понедельник 16:57</time>
+            </div>
+            <div class="mass_media__news-list">
+                <ul>
+                    <li>Число жертв пожара в кемеровском ТЦ превысило 50</li>
+                    <li>Мария Захарова назвала «дело Скрипаля» колоссальной авантюрой Лондона</li>
+                    <li>Британские СМИ сообщили о «тайной встрече» Скрипаля перед покушением</li>
+                    <li>Система ПРО Саудовской Аравии сбила 7 ракет мятежников-хуситов</li>
+                    <li>Истребители Су-35С в ходе учений перебазировались на южные Курилы</li>
+                </ul>
+            </div>
+            <div class="mass-media__exchange-rates">
+                <div class="mass-media__exchange-rates__usd">
+                    <strong>USD ЦБ</strong> 59,18 <span class="mass-media__exchange-rates__change">-0,10</span>
+                </div>
+                <div class="mass-media__exchange-rates__eur">
+                    <strong>EUR ЦБ</strong> 68,92 <span class="mass-media__exchange-rates__change">-0,06</span>
+                </div>
+                <div class="mass-media__exchange-rates__oil">
+                    <strong>НЕФТЬ</strong> 63,44 <span class="mass-media__exchange-rates__change">-0,27%</span>
+                </div>
+                <div class="mass-media__exchange-rates__more"><a href="#">...</a></div>
+            </div>
+        </div>
+        <div class="ads-1">
+            <a href="#">
+                <div class="ads-1__img"><img src="./images/ads-1.png" alt=""></div>
+            <div class="ads-1__title">
+                <span class="link-style">32 ГБ студентам</span> <br>
+                <span class="link-style">на Яндекс.Диске</span> 
+            </div>
+            </a>
+            <div class="ads-1__description">Бесплатно и навсегда</div>
+            
+        </div>
+        <label class="settings link-style" for="settings">Настройки</label>
+        <input type="checkbox" name="" id="settings">
+        <div class="settings__content">
+                <fieldset>
+                    <ul>
+                        <li>
+                            <input type="checkbox" name="" id="mostVisited" checked>
+                            <label for="mostVisited">Посещаемое</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" name="" id="tv" checked>
+                            <label for="tv">Телепрограмма</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" name="" id="weather" checked>
+                            <label for="weather">Погода</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" name="" id="trafficJam" checked>
+                            <label for="trafficJam">Пробки</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" name="" id="map" checked>
+                            <label for="map">Карта Екатеринбурга</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" name="" id="bestJokes" checked>
+                            <label for="bestJokes">Лучшие анекдоты</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" name="" id="autoNews" checked>
+                            <label for="autoNews">Автомобильные новости</label>
+                        </li>
+                    </ul>
+                </fieldset>
+                
+            </div>
+        <div class="login-card">
+            <div class="login-card__login bold link-style">login</div>
+            <div class="login-card__mail link-style">Почта <strong>138</strong></div>
+        </div>
+        <div class="logo">Яндекс</div>
+        <div class="home-tabs">
+            <ul class="search-form__categories">
+                <li><a href="#">Видео</a></li>
+                <li><a href="#">Картинки</a></li>
+                <li><a href="#">Новости</a></li>
+                <li><a href="#">Карты</a></li>
+                <li><a href="#">Маркет</li>
+                <li><a href="#">Переводчик</a></li>
+                <li><a href="#">Музыка</a></li>
+                <li><a href="#">ещё</a></li>
+            </ul>
+        </div>
+        <div class="search-form">
+            <form class="search-form__form" action="#">
+                <div class="search-form__input-box">
+                    <input class="search-form__text" type="text">
+                    <div class="search-form__voice-search"></div>
+                    <div class="search-form__keyboard"></div>
+                    <input class="search-form__submit" type="submit" value="Найти">
+                </div>
+            </form>
+            <div class="search-form__tip">
+                Найдётся всё. Например, <a href="#">выхожу один я на дорогу</a>
+            </div>
+        </div>
+        <div class="ads-2">
+            <img src="./images/ads-2.png" alt="">
+        </div>
+        <div class="news-wrapper">
+            <div class="news-wrapper__most-visited">
+                <div class="news-wrapper__title"><a href="#">Посещаемое</a></div>
+                <ul>
+                    <li>
+                        <a href="#" class="bold">Маркет</a>
+                        <span> — </span>
+                        <a href="#">китайская распродажа</a>
+                    </li>
+                    <li>
+                        <a href="#" class="bold">Авто.ру</a>
+                        <span> — </span>
+                        <a href="#">Туссан третьей серии</a>
+                    </li>
+                    <li>
+                        <a href="#" class="bold">Недвижимость</a>
+                        <span> — </span>
+                        <a href="#">продажа студии</a>
+                    </li>
+                    <li>
+                        <a href="#" class="bold">Работа</a>
+                        <span> — </span>
+                        <a href="#">охранником</a>
+                    </li>
+                    <li>
+                        <a href="#" class="bold">Здоровье</a>
+                        <span> — </span>
+                        <a href="#">врач на связи</a>
+                    </li>
+                    <li>
+                        <a href="#" class="bold">Коллекции</a>
+                        <span> — </span>
+                        <a href="#">как мелировать волосы</a>
+                    </li>
+                    <li>
+                        <a href="#" class="bold">Авиабилеты</a>
+                        <span> — </span>
+                        <a href="#">из Екатеринбурга</a>
+                    </li>
+                </ul>
+
+            </div>
+            <div class="news-wrapper__tv">
+                <div class="news-wrapper__tv__header">
+                    <div class="news-wrapper__title"><a href="#">Телепрограмма</a></div>
+                    <button class="news-wrapper__tv__button">ТВ онлайн 	►</button>
+                </div>
+                
+                <ul>
+                    <li>
+                        <a href="#">16:00 Понять. Простить</a>
+                        <span class="news-wrapper__tv__channel text-muted">
+                            41 Домашний
+                        </span>
+                        </li>
+                    <li>
+                        <a href="#">16:30 Место встречи</a>
+                        <span class="news-wrapper__tv__channel text-muted">
+                            НТВ
+                        </span>
+                        </li>
+                    <li>
+                        <a href="#">Детективы</a>
+                        <span class="news-wrapper__tv__channel text-muted">
+                            Пятый канал
+                        </span>
+                        </li>
+                    <li>
+                        <a href="#">Новости</a>
+                        <span class="news-wrapper__tv__channel text-muted">
+                            РЕН ТВ
+                        </span>
+                        </li>
+                    <li>
+                        <a href="#">Гадалка</a>
+                        <span class="news-wrapper__tv__channel text-muted">
+                            ТВ-3
+                        </span>
+                        </li>
+                    <li>
+                        <a href="#">Реальные пацаны</a>
+                        <span class="news-wrapper__tv__channel text-muted">
+                            ТНТ
+                        </span>
+                        </li>
+                </ul>
+            </div>
+            <div class="news-wrapper__weather">
+                <div class="news-wrapper__weather__header">
+                    <div class="news-wrapper__title"><a href="#">Погода</a></div>
+                    <i class="news-wrapper__weather__icon"></i>
+                    <span class="news-wrapper__weather__value bold">-3 °C</span>
+                </div>
+                <div class="news-wrapper__weather__values-range">Вечер -5, ночь -7</div>
+            </div>
+            <div class="news-wrapper__traffic-jam">
+                <div class="news-wrapper__traffic-jam__header">
+                    <div class="news-wrapper__title"><a href="#">Пробки</a></div>
+                    <i class="news-wrapper__traffic-jam__icon"></i>
+                    <span class="news-wrapper__traffic-jam__value bold">4 балла</span>
+                </div>
+                <div class="news-wrapper__traffic-jam__description">Местами затруднения</div>
+            </div>
+            <div class="news-wrapper__map">
+                <div class="news-wrapper__title"><a href="#">Карта Екатеринбурга</a></div>
+                <ul>
+                    <li class="bold"><a id="huy" href="#">Такси</a></li>
+                    <li class="bold"><a href="#">Расписание</a></li>
+                    <li class="news-wrapper__map__block-bullet bold"><a href="#">Междугородные автобусы</a></li>
+                </ul>
+            </div>
+            <div class="news-wrapper__best-jokes">
+                <div class="news-wrapper__title"><a href="#">Лучшие анекдоты</a></div>
+                <div class="news-wrapper__best-jokes__joke">
+                    <span class="news-wrapper__best-jokes__charter">Раздел: <a href="#">Медицинские</a> .</span>
+                    <span>- Вас лечить хорошо или бесплатно?</span> 
+                </div>
+                <i class="news-wrapper__best-jokes__show-more-icon">↻</i>
+                <button class="news-wrapper__best-jokes__show-more-button">Показать еще</button>
+            </div>
+            <div class="news-wrapper__auto-news">
+                <div class="news-wrapper__title"><a href="#">Автомобильные новости</a></div>
+                <ul>
+                    <li><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, asperiores?</a><time class="text-muted">12:03</time></li>
+                    <li><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, asperiores?</a><time class="text-muted">13:06</time></li>
+                    <li><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, asperiores?</a><time class="text-muted">14:24</time></li>
+                    <li><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, asperiores?</a><time class="text-muted">15:01</time></li>
+                    <li><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, asperiores?</a><time class="text-muted">15:03</time></li>
+                    <li><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, asperiores?</a><time class="text-muted">15:39</time></li>
+                    <li><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, asperiores?</a><time class="text-muted">16:29</time></li>
+                    <li><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, asperiores?</a><time class="text-muted">17:14</time></li>
+                    <li><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, asperiores?</a><time class="text-muted">20:22</time></li>
+                    <li><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, asperiores?</a><time class="text-muted">20:23</time></li>
+                </ul>
+            </div>
+            <div class="news-wrapper__poster">
+                <div class="news-wrapper__title"><a href="#">Афиша</a></div>
+                <ul>
+                    <li><a href="#">Субурбикон</a><span class="text-muted">премьера в чт</span></li>
+                    <li><a href="#">Последний богатырь</a><span class="text-muted">приключения</span></li>
+                    <li><a href="#">Фиксики: Большой секрет</a><span class="text-muted">мультфильм</span></li>
+                    <li><a href="#">Тор: Рагнарёк</a><span class="text-muted">фэнтези</span></li>
+                    <li><a href="#">Убийство в Восточном экспрессе</a><span class="text-muted">драма</span></li>
+                    <li class="bold"><a href="#">Концерты — Brainstorm</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
+ 
